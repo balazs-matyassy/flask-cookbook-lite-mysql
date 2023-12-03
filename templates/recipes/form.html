@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% set recipe = form.entity %}
+
+{% block main %}
+    <h2>{{ 'Create' if form.create_form else 'Edit' }} recipe</h2>
+
+    {% if form.errors %}
+        <ul>
+            {% for error in form.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form method="post">
+        <table>
+            <tbody>
+            <tr>
+                <th>
+                    <label for="category">Category</label>
+                </th>
+                <td>
+                    <input name="category"
+                           type="text"
+                           class="form-control"
+                           id="category"
+                           value="{{ recipe.category }}" required>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="name">Name</label>
+                </th>
+                <td>
+                    <input name="name"
+                           type="text"
+                           class="form-control"
+                           id="name"
+                           value="{{ recipe.name }}" required>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="description">Description</label>
+                </th>
+                <td>
+                    <textarea name="description"
+                              class="form-control"
+                              id="description">{{ recipe.description }}</textarea>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="difficulty">Difficulty</label>
+                </th>
+                <td>
+                    <select name="difficulty" class="form-control" id="difficulty" required>
+                        <option value="1"{{ 'selected' if recipe.difficulty == 1 else '' }}>
+                            ★☆☆☆☆ (Very easy)
+                        </option>
+                        <option value="2"{{ 'selected' if recipe.difficulty == 2 else '' }}>
+                            ★★☆☆☆ (Easy)
+                        </option>
+                        <option value="3"{{ 'selected' if recipe.difficulty == 3 else '' }}>
+                            ★★★☆☆ (Medium)
+                        </option>
+                        <option value="4"{{ 'selected' if recipe.difficulty == 4 else '' }}>
+                            ★★★★☆ (Difficult)
+                        </option>
+                        <option value="5"{{ 'selected' if recipe.difficulty == 5 else '' }}>
+                            ★★★★★ (Very difficult)
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% if form.create_form %}
+                        <button type="submit" class="btn btn-primary" onclick="return confirm('Create recipe?')">
+                            Create
+                        </button>
+                    {% else %}
+                        <button type="submit" class="btn btn-primary" onclick="return confirm('Save recipe?')">
+                            Save
+                        </button>
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{{ url_for('recipes.list_all') }}" class="btn btn-danger">Cancel</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+{% endblock %}

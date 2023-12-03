@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <h2>Login</h2>
+
+    <form method="post">
+        {% if form.errors %}
+            <ul>
+                {% for error in form.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <table>
+            <tbody>
+            <tr>
+                <th>
+                    <label for="username">Username</label>
+                </th>
+                <td>
+                    <input name="username"
+                           type="text"
+                           class="form-control"
+                           id="username"
+                           value="{{ form.username }}" required>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="password">Password</label>
+                </th>
+                <td>
+                    <input name="password"
+                           type="password"
+                           class="form-control"
+                           id="password"
+                           value="{{ form.password }}" required>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+{% endblock %}
