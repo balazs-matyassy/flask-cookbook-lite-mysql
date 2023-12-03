@@ -1,5 +1,3 @@
-from flask import g
-
 from persistence import fetchall, fetchone, execute
 from persistence.model.user import User
 
