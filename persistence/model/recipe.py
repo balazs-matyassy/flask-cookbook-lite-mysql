@@ -1,6 +1,3 @@
-import base64
-
-
 class Recipe:
     def __init__(self, category='', name='', description='', difficulty=1, recipe_id=None):
         self.recipe_id = recipe_id
