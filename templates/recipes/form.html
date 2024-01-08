@@ -56,19 +56,19 @@
                 </th>
                 <td>
                     <select name="difficulty" class="form-control" id="difficulty" required>
-                        <option value="1"{{ 'selected' if recipe.difficulty == 1 else '' }}>
+                        <option value="1"{{ ' selected' if recipe.difficulty == 1 else '' }}>
                             ★☆☆☆☆ (Very easy)
                         </option>
-                        <option value="2"{{ 'selected' if recipe.difficulty == 2 else '' }}>
+                        <option value="2"{{ ' selected' if recipe.difficulty == 2 else '' }}>
                             ★★☆☆☆ (Easy)
                         </option>
-                        <option value="3"{{ 'selected' if recipe.difficulty == 3 else '' }}>
+                        <option value="3"{{ ' selected' if recipe.difficulty == 3 else '' }}>
                             ★★★☆☆ (Medium)
                         </option>
-                        <option value="4"{{ 'selected' if recipe.difficulty == 4 else '' }}>
+                        <option value="4"{{ ' selected' if recipe.difficulty == 4 else '' }}>
                             ★★★★☆ (Difficult)
                         </option>
-                        <option value="5"{{ 'selected' if recipe.difficulty == 5 else '' }}>
+                        <option value="5"{{ ' selected' if recipe.difficulty == 5 else '' }}>
                             ★★★★★ (Very difficult)
                         </option>
                     </select>
