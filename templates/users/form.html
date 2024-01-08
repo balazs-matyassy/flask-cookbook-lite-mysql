@@ -45,10 +45,10 @@
                 </th>
                 <td>
                     <select name="role" class="form-control" id="role" required>
-                        <option value="user"{{ 'selected' if user.role == 'user' else '' }}>
+                        <option value="user"{{ ' selected' if user.role == 'user' else '' }}>
                             USER
                         </option>
-                        <option value="admin"{{ 'selected' if user.role == 'admin' else '' }}>
+                        <option value="admin"{{ ' selected' if user.role == 'admin' else '' }}>
                             ADMIN
                         </option>
                     </select>
